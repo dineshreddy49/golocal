@@ -1,0 +1,33 @@
+.quantityControl{
+    display: flex;
+    align-items: center;
+    margin-top: 25%;  
+    margin-left: 10%; 
+    margin-bottom: 10%;
+}
+.increase-remove-container{
+    display: flex;
+    flex-direction: column;
+}
+.quantityControl button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+.quantityControl input{
+    width: 40px;
+    height: 20px;
+   
+    margin: 0 5px;
+    text-align: center;
+}
+.cart-card{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width:100%;
+}
+
+.prod-body{
+    text-align: start;
+}

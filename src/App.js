@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useEffect } from "react";
+import Cart from './Container/CartPage/Cart';
+import MainPage from './Container/ProductsPage/MainPage';
+import { Switch, Route } from 'react-router-dom';
+import PlaceOrder from './Container/PlaceOrder/PlaceOrder';
+import LoginPage from './Container/LoginPage/LoginPage';
+import SignupPage from './Container/SignupPage/SignupPage';
+import { useDispatch, useSelector } from 'react-redux';
+import {isUserLoggedIn} from './Redux'
 function App() {
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (!auth.authenticated) {
+      dispatch(isUserLoggedIn());
+    }
+  }, [auth.authenticated]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Switch>
+      <Route path="/" exact component={MainPage}/>
+      <Route path= "/cart" component={Cart}></Route>
+      <Route path= "/placeorder" component={PlaceOrder}></Route>
+      <Route path= "/login" component={LoginPage}></Route>
+      <Route path= "/signup" component={SignupPage}></Route>
+    </Switch>
     </div>
   );
 }
