@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react'
-import axios from 'axios'
 import Productcard from '../ProductsCard/ProductCard'
 import {Container,Row,Col} from 'react-bootstrap'
 import './Products.css'
@@ -9,17 +8,20 @@ import { useDispatch,useSelector } from 'react-redux';
 function Products(props) {
     const products= useSelector(state=>state.product)
     const dispatch = useDispatch();
-    useEffect(() => {dispatch(getProducts())}, [])
+    useEffect(() => {
+        
+        dispatch(getProducts())}, [])
     let content =null
     const n = 10;
-    if(products.error)
-    {
-        content=<p>Error fetching the data please check your internet connection</p>
-    }
     if(products.loading)
     {
         content=[...Array(n)].map((e, i) =><div key={i}><Col className="each-product"><ProductCardSkeleton /></Col></div>
         )}
+    if(products.error)
+    {
+        content=<p>Error fetching the data please check your internet connection</p>
+    }
+    
     if(products.data)
     {
         content=products.data.filter((product)=>{
