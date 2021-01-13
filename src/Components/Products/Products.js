@@ -6,22 +6,14 @@ import ProductCardSkeleton from '../ProductsCard/ProductCardSkeleton'
 import { getProducts } from '../../Redux/Products/productActions'
 import { useDispatch,useSelector } from 'react-redux';
 function Products(props) {
+    let content =null;
     const products= useSelector(state=>state.product)
     const dispatch = useDispatch();
     useEffect(() => {
         
         dispatch(getProducts())}, [])
-    let content =null
     const n = 10;
-    if(products.loading)
-    {
-        content=[...Array(n)].map((e, i) =><div key={i}><Col className="each-product"><ProductCardSkeleton /></Col></div>
-        )}
-    if(products.error)
-    {
-        content=<p>Error fetching the data please check your internet connection</p>
-    }
-    
+
     if(products.data)
     {
         content=products.data.filter((product)=>{
@@ -41,6 +33,9 @@ function Products(props) {
         <div>
           <Container className="products-container" >
           <Row xs={1} md={2}>
+          {products.loading && [...Array(n)].map((e, i) =><div key={i}><Col className="each-product"><ProductCardSkeleton /></Col></div>
+          ) }
+          {products.error &&  <Col>Error fetching the data please check your internet connection</Col>}
           {content}
           </Row>
         </Container>
