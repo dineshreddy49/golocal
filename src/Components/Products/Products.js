@@ -5,6 +5,8 @@ import './Products.css'
 import ProductCardSkeleton from '../ProductsCard/ProductCardSkeleton'
 import { getProducts } from '../../Redux/Products/productActions'
 import { useDispatch,useSelector } from 'react-redux';
+
+
 function Products(props) {
     let content =null;
     const products= useSelector(state=>state.product)

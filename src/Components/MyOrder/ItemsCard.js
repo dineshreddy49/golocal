@@ -8,10 +8,10 @@ function ItemsCard(props) {
                 <Media.Body className="prod-body">
                 <h5>{props.useritems._id}</h5>
                 <p>
-                Quantity:{props.useritems.purchasedQty}
+                Quantity:{props.useritems.count}
                 </p>
                 <p>
-                RS:{props.useritems.payablePrice}₹/-
+                RS:{props.useritems.price}₹/-
                 </p>
                 </Media.Body>
             </Media>
