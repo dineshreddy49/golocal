@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import PlaceOrder from './Container/PlaceOrder/PlaceOrder';
 import LoginPage from './Container/LoginPage/LoginPage';
 import SignupPage from './Container/SignupPage/SignupPage';
+import MyOrder from './Container/MyOrder/MyOrder'
 import { useDispatch, useSelector } from 'react-redux';
 import {isUserLoggedIn} from './Redux'
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path= "/placeorder" component={PlaceOrder}></Route>
       <Route path= "/login" component={LoginPage}></Route>
       <Route path= "/signup" component={SignupPage}></Route>
+      <Route path= "/myorder" component={MyOrder}></Route>
     </Switch>
     </div>
   );

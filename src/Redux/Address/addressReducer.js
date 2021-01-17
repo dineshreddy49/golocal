@@ -54,7 +54,8 @@ const reducer=(state=initialState,action)=>{
                                  case SELECTED_ADDRESS:
                                     return{
                                         loading:false,
-                                        selectedAddress:action.payload,
+                                        selectedAddress:action.payload.eachAddress,
+                                        address:action.payload.UserAddress,
                                         error:''
                                     }
                     default: return state

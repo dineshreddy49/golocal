@@ -48,7 +48,8 @@ export default function MainStepper() {
   const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
   const auth = useSelector((state) => state.auth);
-  const address= useSelector(state=>state.addAddress)
+  const address= useSelector(state=>state.addAddress);
+  const order = useSelector(state=>state.placeorder);
   const totalSteps = () => {
     return steps.length;
   };
@@ -100,7 +101,9 @@ export default function MainStepper() {
   if(address.selectedAddress&&activeStep===1){
     console.log(address.selectedAddress)
     handleComplete();
-
+  }
+  if(order.isOrderSuccess&&activeStep===2){
+    handleComplete();
   }
 
   return (
@@ -118,7 +121,7 @@ export default function MainStepper() {
         {allStepsCompleted() ? (
           <div>
             <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
+              Payment Succesfull.
             </Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>

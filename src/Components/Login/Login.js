@@ -1,10 +1,7 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect  } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -16,12 +13,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import {loginUser} from '../../Redux';
 import {Redirect} from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
+import { useForm } from "react-hook-form";
+import {isUserLoggedIn} from '../../Redux'
+import _ from "lodash/fp";
+import './Login.css'
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Go Local
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -50,30 +52,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Login() {
-  const classes = useStyles();
-  const authenticated= useSelector(state=>state.auth.authenticated)
+  const { register, errors, handleSubmit } = useForm({
+    criteriaMode: "all",
+    mode: "onChange"
+  });
+  const login = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (!login.authenticated) {
+      dispatch(isUserLoggedIn());
+    }
+  }, [login.authenticated]);
+  const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const submit=(e)=>{
+  const onSubmit=(e)=>{
     e.preventDefault();
     const details = {
         email, password
     }
-console.log(details)
+  console.log(details)
     dispatch(loginUser(details));
   }
+  console.log(login.error)
   const history = useHistory();
   const handleLogin=()=>
   {
     history.push(`/signup`);
   }
-  if(authenticated){
+  if(login.authenticated){
     return(<div>
         <Redirect to="/" />
       </div>)
-        
-    
 }
   return (
     <Container component="main" maxWidth="xs">
@@ -83,45 +93,51 @@ console.log(details)
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Go Local Sign in
         </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            value={email}
-            autoComplete="email"
-            autoFocus
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-              onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)} >
+          <label>Email:</label>
+          <input
+          name="email"
+          onChange={(e) => setEmail(e.target.value)}
+          ref={register({
+            required: true,
+            pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+          })}
+        />
+        {errors?.email?.types?.required && <p className = "warning">Email Required</p>}
+        {errors?.email?.types?.pattern && <p className = "warning">Enter a Valid Email Id</p>}<br />
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+          ref={register({ required: true, minLength: 10 })}
+        />
+        {/* without enter data for the password input will result both messages to appear */}
+        {errors?.password?.types?.required && <p className = "warning">password required</p>}
+        {errors?.password?.types?.minLength && <p className = "warning" >password minLength 10</p>}
+        {login.error && <div> Email ID or Password is Wrong </div>}
+           {login.loading ?  
+           <Button
+            disabled
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={submit}
-          >
-            Sign In
-          </Button>
+          >Signing In Please Wait.....</Button>
+          :
+          <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+          onClick={onSubmit}
+        >Sign In</Button> }
+           
+          
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">

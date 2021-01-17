@@ -36,6 +36,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexGrow: 1,
   },
   drawer: {
     [theme.breakpoints.up('sm')]: {
@@ -146,6 +147,10 @@ function ResponsiveDrawer(props) {
   {
     history.push(`/cart`);
   }
+  const handleOrder=()=>
+  {
+    history.push(`/myorder`);
+  }
   const handleLogin=()=>
   {
     history.push(`/login`);
@@ -211,14 +216,6 @@ function ResponsiveDrawer(props) {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        {/* <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p> */}
-      </MenuItem>
-      <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={cartItems.length} color="secondary">
             <ShoppingCartIcon />
@@ -232,7 +229,6 @@ function ResponsiveDrawer(props) {
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
-         
         >
           <AccountCircle  />
         </IconButton>
@@ -254,7 +250,7 @@ function ResponsiveDrawer(props) {
         // ))}
   }
         <ListItem button onClick={handleCart}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"Cart"}/></ListItem>
-        <ListItem button onClick={handleCart}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"My Orders"}/></ListItem>
+        <ListItem button onClick={handleOrder}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"My Orders"}/></ListItem>
         {['BUTTER MILK', 'BISCUITS', 'BULK ORDER'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <ShoppingCartIcon />}</ListItemIcon>

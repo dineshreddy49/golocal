@@ -3,7 +3,7 @@ const initialState={
     loading:false,
     authenticated:false,
     users:[],
-    error:''
+    error:false
 }
 const reducer=(state=initialState,action)=>{
     switch(action.type){
@@ -17,14 +17,14 @@ const reducer=(state=initialState,action)=>{
                     loading:false,
                     authenticated:true,
                     users:action.payload,
-                    error:''
+                    error:false
                 }
                 case USER_LOGIN_FAILURE:
                     return{
                         loading:false,
                         authenticated:false,
                         users:[],
-                        error:action.payload
+                        error:true
                     }
                     case USER_LOGOUT_REQUEST:
                     return{

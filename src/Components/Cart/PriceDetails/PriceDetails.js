@@ -32,14 +32,24 @@ function PriceDetails() {
         <div className="cost-price-item2">FREE</div>
         </div>
         <h3 className="cart-amount">Total Amount:  {cartItems.reduce((a, c) => a + c.price * c.count, 0)}₹/-</h3>
-        <div className="place-order-button"><Button
+        <div className="place-order-button">{cartItems.length <=0 ? <Button
+        variant="contained"
+        color="primary"
+        disabled
+        onClick={handlePlaceOrder}
+        className={classes.button}
+      >
+        Place Order 
+      </Button>:<Button
         variant="contained"
         color="primary"
         onClick={handlePlaceOrder}
         className={classes.button}
       >
         Place Order 
-      </Button></div>
+      </Button>}
+        
+        </div>
         </div>
         
     )

@@ -6,6 +6,8 @@ import generatePublicUrl from '../../urlconfig'
 import { useDispatch, useSelector  } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Toast from 'light-toast';
+
 toast.configure()
 function Productcard(props) {
   const cartItems= useSelector(state=>state.cart.items)
@@ -19,7 +21,7 @@ function Productcard(props) {
   //  })
 
     const handleAddToCart=(e)=>{
-      toast.success(props.product.name+' is added to cart',{position:toast.POSITION.TOP_CENTER});
+      Toast.success(props.product.name+' is added to cart',{position:toast.POSITION.TOP_CENTER});
       dispatch(addToCart(cartItems,props.product))
     }
     return (

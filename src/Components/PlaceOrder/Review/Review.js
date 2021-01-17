@@ -6,14 +6,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import { useDispatch, useSelector  } from 'react-redux';
-const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+import Button from '@material-ui/core/Button';
+import './Review.css'
+import {placeOrder} from '../../../Redux/index'
+
 const payments = [
   { name: 'Card type', detail: 'Visa' },
   { name: 'Card holder', detail: 'Mr John Smith' },
@@ -31,15 +27,51 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: theme.spacing(2),
   },
+  root:{
+    margin: theme.spacing(1),
+  }
 }));
 
 export default function Review() {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const cartItems= useSelector(state=>state.cart.items)
   const deliveryAddress= useSelector(state=>state.addAddress)
-   
+  const addressId = deliveryAddress.selectedAddress._id;
+  
+  // const _id = cartItems.map((items)=>(
+  //   items.id
+  // ))
+  // const price = cartItems.map((items)=>(
+  //   items.price
+  // ))
+  // const count = cartItems.map((items)=>(
+  //   items.count
+  // ))
+  const items = []
+  const item1 =cartItems.map((product) => {
+     items.push( {"_id":product._id,
+    "count":product.count,
+    "price":product.price})
+  })
+  //const items =  cartItems1;
+  const paymentStatus = "pending";
+  const paymentType = "cod";
+  console.log(items)
+  const totalAmount = cartItems.reduce((a, c) => a + c.price * c.count, 0);
+  const handleOrder = (e) =>{
+    e.preventDefault();
+    const orders={
+      addressId,totalAmount,items,paymentStatus,paymentType
+    }
+    console.log(orders)
+    dispatch(placeOrder(orders));
+  }
+
+   console.log(deliveryAddress)
   return (
     <React.Fragment>
+      <div className={classes.root}>
       <Typography variant="h6" gutterBottom>
         Order summary
       </Typography>
@@ -53,7 +85,7 @@ export default function Review() {
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            $34.06
+           ₹ {totalAmount} /-
           </Typography>
         </ListItem>
       </List>
@@ -62,8 +94,9 @@ export default function Review() {
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
+          <Typography gutterBottom>{deliveryAddress.selectedAddress.fullName}</Typography>
+          <Typography gutterBottom>{deliveryAddress.selectedAddress.mobileNumber},{deliveryAddress.selectedAddress.address},{deliveryAddress.selectedAddress.locality}</Typography>
+          <Typography gutterBottom>{deliveryAddress.selectedAddress.cityDistrictTown},{deliveryAddress.selectedAddress.state},{deliveryAddress.selectedAddress.pinCode}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
@@ -82,7 +115,15 @@ export default function Review() {
             ))}
           </Grid>
         </Grid>
+        <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                className="place-order-css"
+                onClick={handleOrder}
+                >Order Now</Button>
       </Grid>
+      </div>
     </React.Fragment>
   );
 }

@@ -7,10 +7,16 @@ import { useDispatch,useSelector } from 'react-redux';
 import {addAddress} from '../../../../Redux'
 import { Container } from '@material-ui/core';
 import './AddressForm.css';
+import { useForm } from "react-hook-form";
+import _ from "lodash/fp";
 const useStyles = makeStyles((theme) => ({
     button: {
       marginTop: theme.spacing(1),
       marginRight: theme.spacing(1),
+    },
+    form: {
+      width: '50%', // Fix IE 11 issue.
+      marginTop: theme.spacing(3),
     },
   }));
 export default function AddressForm() {
@@ -23,6 +29,10 @@ export default function AddressForm() {
     const [cityDistrictTown, setCity] = useState('');
     const [state, setState] = useState('');
     const dispatch = useDispatch();
+    const { register, errors, handleSubmit } = useForm({
+      criteriaMode: "all",
+      mode: "onChange"
+    });
     const handleSubmitAddress=(e)=>{
         e.preventDefault();
         const details = {
@@ -37,74 +47,94 @@ export default function AddressForm() {
     return (
     <React.Fragment>
     <Container className="addressForm-container">
+    <form className={classes.form} handleSubmitAddress={handleSubmit(handleSubmitAddress)}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
-          <TextField
-            required
-            id="Name"
-            name="Name"
-            label="name"
-            fullWidth
-            autoComplete="given-name"
-            onInput={ e=>setFname(e.target.value)}
-          />
+              <input
+                className="input1"
+                type="text"
+                name="Name"
+                placeholder="Enter Your Full Name"
+                onChange={(e) => setFname(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.Name?.types?.required && <p className = "warning">Name required</p>}
         </Grid>
         <Grid item xs={12} >
-        <TextField
-        required
-        id="Phone Number"
-        name="Phone Number"
-        label="Phone Number"
-        fullWidth
-        autoComplete="Phone Number"
-        onInput={ e=>setPhoneNumber(e.target.value)}
-      />
+          <input
+                className="input1"
+                type="text"
+                name="cityDistrictTown"
+                placeholder="Enter Your Mobile Number"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.cityDistrictTown?.types?.required && <p className = "warning">City required</p>}
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            required
-            id="address1"
-            name="address1"
-            label="Address line 1"
-            fullWidth
-            autoComplete="shipping address-line1"
-            onInput={ e=>setAddress1(e.target.value)}
-          />
+        <input
+                type="text"
+                className="input1"
+                name="address"
+                placeholder="Enter Your Address Line 1"
+                onChange={(e) => setAddress1(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.address?.types?.required && <p className = "warning">address required</p>}
         </Grid>
         <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="shipping address-line2"
-            onInput={ e=>setAddress2(e.target.value)}
-          />
+        <input
+                type="text"
+                name="locality"
+                className="input1"
+                placeholder="Enter Your Address Line 2"
+                onChange={(e) => setAddress2(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.locality?.types?.required && <p className = "warning">address required</p>}
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="shipping address-level2"
-            onInput={ e=>setCity(e.target.value)}
-          />
+        <input
+                type="text"
+                name="locality"
+                className="input1"
+                placeholder="Enter Your City"
+                onChange={(e) => setCity(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.locality?.types?.required && <p className = "warning">address required</p>}
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField id="state" name="state" label="State/Province/Region" fullWidth onInput={ e=>setState(e.target.value)}/>
+          <input
+                type="text"
+                name="state"
+                className="input1"
+                placeholder="Enter Your state"
+                onChange={(e) => setState(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.state?.types?.required && <p className = "warning">state required</p>}
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="shipping postal-code"
-            onInput={ e=>setZip(e.target.value)}
-          />
+        <input
+                type="text"
+                name="pinCode"
+                className="input1"
+                placeholder="Enter Your pinCode"
+                onChange={(e) => setZip(e.target.value)}
+                ref={register({ required: true})}
+              />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.pinCode?.types?.required && <p className = "warning">pinCode required</p>}
         </Grid>
       </Grid>
       <Button
@@ -112,7 +142,7 @@ export default function AddressForm() {
       color="secondary"
       className={classes.button}
       onClick={handleSubmitAddress}
-    >Save Address</Button>
+    >Save Address</Button></form>
     </Container>
     </React.Fragment>
   );

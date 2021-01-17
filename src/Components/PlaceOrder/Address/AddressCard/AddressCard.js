@@ -3,12 +3,12 @@ import './Address.css'
 function AddressCard(props) {
     return (
         <div className="address-card-container">
-            <div>{props.product.fullName}</div>
-            <div>{props.product.address}</div>
-            <div>{props.product.locality}</div>
-            <div>{props.product.mobileNumber}</div>
-            <div>{props.product.state}</div>
-            <div>{props.product.pinCode}</div>
+            <div>{props.eachAddress.fullName}</div>
+            <div>{props.eachAddress.address}</div>
+            <div>{props.eachAddress.locality}</div>
+            <div>{props.eachAddress.mobileNumber}</div>
+            <div>{props.eachAddress.state}</div>
+            <div>{props.eachAddress.pinCode}</div>
         </div>
     )
 }

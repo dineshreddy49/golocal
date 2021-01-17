@@ -35,6 +35,7 @@ export const loginUser=details=>{
             const users = response.data
             const { token, user } = response.data;
       localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
       localStorage.setItem("id", JSON.stringify(user._id));
             dispatch(loginSuccess(users))
         })
@@ -48,8 +49,9 @@ export const isUserLoggedIn = () => {
     return async (dispatch) => {
       const token = localStorage.getItem("token");
       if (token) {
-        const user = JSON.parse(localStorage.getItem("user"));
-        loginSuccess(user)
+        const user = localStorage.getItem("user");
+        console.log(user)
+       dispatch(loginSuccess(user))
       } else {
         const errorMsg = "Failed to login"
             dispatch(loginFailure(errorMsg));

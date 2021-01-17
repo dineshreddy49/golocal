@@ -15,6 +15,9 @@ import Container from '@material-ui/core/Container';
 import { useHistory } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux';
 import {signupUser} from '../../Redux'
+import { useForm } from "react-hook-form";
+import _ from "lodash/fp";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -49,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Signup() {
+  const { register, errors, handleSubmit } = useForm({
+    criteriaMode: "all",
+    mode: "onChange"
+  });
   const classes = useStyles();
   const history = useHistory();
   const signup= useSelector(state=>state.signup)
@@ -57,7 +64,7 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const submit=(e)=>{
+  const onSubmit=(e)=>{
     e.preventDefault();
     const details = {
         email, password,firstName,lastName
@@ -76,7 +83,7 @@ console.log(details)
     variant="contained"
     color="primary"
     className={classes.submit}
-    onClick={submit}
+    onClick={onSubmit}
   >
    signup
   </Button>
@@ -88,7 +95,7 @@ console.log(details)
     variant="contained"
     color="primary"
     className={classes.submit}
-    onClick={submit}
+    onClick={onSubmit}
   >
    please wait
   </Button>
@@ -101,7 +108,7 @@ console.log(details)
     variant="contained"
     color="primary"
     className={classes.submit}
-    onClick={submit}
+    onClick={onSubmit}
   >
    signup
   </Button>
@@ -117,73 +124,74 @@ console.log(details)
         <Typography component="h1" variant="h5">
          Go Local Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
+              <label>First Name:</label>
+              <input
+                type="text"
                 name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-                value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First Name"
+                onChange={(e) => setFirstName(e.target.value)}
+                ref={register({ required: true})}
               />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.firstName?.types?.required && <p className = "warning">firstName required</p>}
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
+            <label>Last Name:</label>
+              <input
+                type="text"
                 name="lastName"
-                autoComplete="lname"
-                value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last Name"
+                onChange={(e) => setLastName(e.target.value)}
+                ref={register({ required: true})}
               />
+                {/* without enter data for the password input will result both messages to appear */}
+                {errors?.lastName?.types?.required && <p className = "warning">lastName required</p>}
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
+              <label>Email:</label>
+              <input
                 name="email"
-                autoComplete="email"
-                value={email}
-              onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter Your Email ID"
+                onChange={(e) => setEmail(e.target.value)}
+                ref={register({
+                  required: true,
+                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+                })}
               />
+              {errors?.email?.types?.required && <p className = "warning">Email Required</p>}
+              {errors?.email?.types?.pattern && <p className = "warning">Enter a Valid Email Id</p>}<br />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
+              <label>Password:</label>
+              <input
                 type="password"
-                id="password"
-                autoComplete="current-password"
-                value={password}
+                name="password"
+                placeholder="Enter Your Password"
                 onChange={(e) => setPassword(e.target.value)}
+                ref={register({ required: true, minLength: 10 })}
               />
+              {/* without enter data for the password input will result both messages to appear */}
+              {errors?.password?.types?.required && <p className = "warning">password required</p>}
+              {errors?.password?.types?.minLength && <p className = "warning" >password minLength 10</p>}
             </Grid>
           </Grid>
-          {buttonContent}
-          {(signup.error) &&<p>{signup.error}</p> }
-          {(signup.signedup) &&<p>{"user signup success go to login page"}</p> }
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2" onClick={handleLogin}>
-                Already have an account? Sign in
-              </Link>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={onSubmit}
+          >
+            Sign Up
+          </Button>
+          <Grid item>
+            <Link href="#" variant="body2" onClick={handleLogin}>{"Already have an account? Sign In"}</Link>
+                
             </Grid>
-          </Grid>
         </form>
       </div>
       <Box mt={5}>
