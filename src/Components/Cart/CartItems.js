@@ -3,6 +3,7 @@ import CartItemCard from '../CartItem/CartItemCard'
 import { useDispatch, useSelector  } from 'react-redux';
 import {Container,Row,Col} from 'react-bootstrap'
 import './cartitems.css'
+
 function CartItems() {
     const cartItems= useSelector(state=>state.cart.items)
     let content =null

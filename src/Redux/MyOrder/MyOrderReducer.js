@@ -16,7 +16,7 @@ const reducer=(state=initialState,action)=>{
                 return{
                     loading:false,
                     available:true,
-                    data:action.payload.MyOrder,
+                    data:action.payload.orders,
                     error:''
                 }
                 case MY_ORDER_FAILURE:

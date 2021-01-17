@@ -20,15 +20,14 @@ export const MyOrderFailure=error=>
         payload: error
     }
 }
-export const MyOrder=details=>{
-    const id =JSON.parse(window.localStorage.getItem("id"));
+export const myOrder=details=>{
     const token = window.localStorage.getItem("token");
     const config = {
         headers: { Authorization: `Bearer ${token}` }
     };
     return(dispatch)=>{
         dispatch(MyOrderRequest)
-        axios.get(`https://golocal999.herokuapp.com/api/getorders/${id}`,config)
+        axios.get('https://golocal999.herokuapp.com/api/getorders',config)
         .then(response =>{
             const MyOrder = response.data
             dispatch(MyOrderSuccess(MyOrder))

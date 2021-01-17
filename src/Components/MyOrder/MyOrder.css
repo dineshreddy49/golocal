@@ -1,0 +1,31 @@
+.cart-items{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 2%;
+}
+
+.order-title{
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: underline;
+    font-size: large;
+    font-weight: bolder;
+}
+.order-header{
+    height: 50px;
+}
+.order-placed{
+    text-align: left;
+    font-size: x-small;
+    margin-bottom: 0;
+}
+.order-content1{
+    text-align: left;
+    font-size: x-small;
+    margin-bottom: 0;
+}
+.order-content{
+    text-align: right;
+    font-size: x-small;
+    margin-bottom: 0;
+}
