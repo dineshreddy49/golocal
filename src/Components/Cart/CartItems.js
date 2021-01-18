@@ -2,6 +2,7 @@ import React from 'react'
 import CartItemCard from '../CartItem/CartItemCard'
 import { useDispatch, useSelector  } from 'react-redux';
 import {Container,Row,Col} from 'react-bootstrap'
+import NavBar from '../../Components/NavBar/NavBar'
 import './cartitems.css'
 
 function CartItems() {
@@ -20,14 +21,14 @@ function CartItems() {
         </div>)
     }
     return (
-        <div className="cart-items">
-        <h2>MY GOLOCAL CART({cartItems.length})</h2>
-          <Container className="products-container" >
-          <Row xs={1} md={1}>
-          {content}
-          </Row>
-        </Container>
-        </div>
+      <div className="cart-items">
+      <h2>MY GOLOCAL CART({cartItems.length})</h2>
+        <Container className="products-container" >
+        <Row xs={1} md={1}>
+        {content}
+        </Row>
+      </Container>
+      </div>
     )
 }
 

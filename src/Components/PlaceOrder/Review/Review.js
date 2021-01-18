@@ -50,7 +50,7 @@ export default function Review() {
   // ))
   const items = []
   const item1 =cartItems.map((product) => {
-     items.push( {"_id":product._id,
+     items.push( {"productId":product._id,
     "count":product.count,
     "price":product.price})
   })

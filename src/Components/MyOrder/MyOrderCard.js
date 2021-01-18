@@ -27,7 +27,7 @@ function MyOrderCard(props) {
                         <Col><p className="order-content1">₹{props.userorder.totalAmount}</p></Col>
                     </Row>    
                 </Card.Header>
-                <Card.Title>{props.userorder.paymentStatus}</Card.Title>
+                {/* <Card.Title>{props.userorder.paymentStatus}</Card.Title> */}
                 <Media >
                     <Media.Body>
                         {content}

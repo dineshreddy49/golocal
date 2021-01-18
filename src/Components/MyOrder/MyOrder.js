@@ -19,7 +19,6 @@ function MyOrder() {
     }
     return (
         <div>
-            <div>he am working</div>
             <div>{content}</div>
         </div>
     )
