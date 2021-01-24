@@ -215,7 +215,8 @@ function ResponsiveDrawer(props) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      
+      <MenuItem onClick={handleCart}>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={cartItems.length} color="secondary">
             <ShoppingCartIcon />
