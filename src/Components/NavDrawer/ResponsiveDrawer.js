@@ -320,17 +320,17 @@ function ResponsiveDrawer(props) {
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-            <AccountCircle/>
-              <MoreIcon />
-            </IconButton>
-          </div>
+          {!authenticated ?<Button color="inherit"  onClick={handleLogin}>Login</Button>:<IconButton
+          aria-label="show more"
+          aria-controls={mobileMenuId}
+          aria-haspopup="true"
+          onClick={handleMobileMenuOpen}
+          color="inherit"
+        >
+        <AccountCircle/>
+          <MoreIcon />
+        </IconButton>}
+         </div>
           
         </Toolbar>
       </AppBar>
