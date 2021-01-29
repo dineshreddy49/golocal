@@ -57,7 +57,6 @@ function CartItemCard(props) {
             </Button>
             </div>
             </Media>
-            
           </Card>
       </row>
     </div>

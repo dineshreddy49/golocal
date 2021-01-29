@@ -29,6 +29,7 @@
         align-items: center;
         margin-top: 10%;  
         margin-left: 5%; 
+        margin-right: 5%;
         margin-bottom: 5%;
     }
     .quantityControl input{
@@ -47,7 +48,8 @@
         display: flex;
         align-items: center;
         margin-top: 10%;  
-        margin-left: 5%; 
+        margin-left: 5%;
+        margin-right: 5%; 
         margin-bottom: 5%;
     }
     .quantityControl input{
@@ -66,7 +68,8 @@
         display: flex;
         align-items: center;
         margin-top: 10%;  
-        margin-left: 5%; 
+        margin-left: 10%;
+        margin-right: 10%; 
         margin-bottom: 5%;
     }
     .quantityControl input{
@@ -85,7 +88,8 @@
         display: flex;
         align-items: center;
         margin-top: 10%;  
-        margin-left: 5%; 
+        margin-left: 10%;
+        margin-right: 10%; 
         margin-bottom: 5%;
     }
     .quantityControl input{
@@ -104,7 +108,8 @@
     display: flex;
     align-items: center;
     margin-top: 25%;  
-    margin-left: 10%; 
+    margin-left: 10%;
+    margin-right: 10%; 
     margin-bottom: 10%;
 }
 .quantityControl input{
