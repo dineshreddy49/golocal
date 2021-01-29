@@ -1,3 +1,105 @@
+
+.increase-remove-container{
+    display: flex;
+    flex-direction: column;
+}
+.quantityControl button{
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.cart-card{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width:100%;
+}
+
+.cart-body{
+    text-align: start;
+}
+@media only screen and (max-width: 600px) {
+    .mr-3{
+        width: 100px;
+        height: 100px;
+    }
+    .quantityControl{
+        display: flex;
+        align-items: center;
+        margin-top: 10%;  
+        margin-left: 5%; 
+        margin-bottom: 5%;
+    }
+    .quantityControl input{
+        width: 50%;
+        height: 20px;
+        margin: 0 5px;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .mr-3{
+        width: 100px;
+        height: 100px;
+    }
+    .quantityControl{
+        display: flex;
+        align-items: center;
+        margin-top: 10%;  
+        margin-left: 5%; 
+        margin-bottom: 5%;
+    }
+    .quantityControl input{
+        width: 50%;
+        height: 20px;
+        margin: 0 5px;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .mr-3{
+        width: 100px;
+        height: 100px;
+    }
+    .quantityControl{
+        display: flex;
+        align-items: center;
+        margin-top: 10%;  
+        margin-left: 5%; 
+        margin-bottom: 5%;
+    }
+    .quantityControl input{
+        width: 50%;
+        height: 20px;
+        margin: 0 5px;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .mr-3{
+        width: 100px;
+        height: 100px;
+    }
+    .quantityControl{
+        display: flex;
+        align-items: center;
+        margin-top: 10%;  
+        margin-left: 5%; 
+        margin-bottom: 5%;
+    }
+    .quantityControl input{
+        width: 50%;
+        height: 20px;
+        margin: 0 5px;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1200px) { 
+    .mr-3{
+    width: 150px;
+    height: 150px;
+}
 .quantityControl{
     display: flex;
     align-items: center;
@@ -5,28 +107,9 @@
     margin-left: 10%; 
     margin-bottom: 10%;
 }
-.increase-remove-container{
-    display: flex;
-    flex-direction: column;
-}
-.quantityControl button{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: transparent;
-}
 .quantityControl input{
     width: 50px;
     height: 20px;
     margin: 0 5px;
     text-align: center;
-}
-.cart-card{
-    margin-top: 1%;
-    margin-bottom: 1%;
-    width:100%;
-}
-
-.prod-body{
-    text-align: start;
-}
+}}

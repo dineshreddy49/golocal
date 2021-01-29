@@ -10,8 +10,6 @@ function ProductCardSkeleton() {
            <Card border="dark" className="prod-card" >
            <Media>
            <Skeleton variant="rect"
-                   width={150}
-                   height={150}
                    className="mr-3" />
            <Media.Body className="prod-body">
              <Skeleton variant="text" />

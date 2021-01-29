@@ -1,4 +1,4 @@
-import { ADD_ADDRESS_FAILURE,ADD_ADDRESS_REQUEST,ADD_ADDRESS_SUCCESS,GET_ADDRESS_FAILURE,GET_ADDRESS,GET_ADDRESS_SUCCESS,SELECTED_ADDRESS  } from "./AddressType"
+import { RESET_ADDRESS,ADD_ADDRESS_FAILURE,ADD_ADDRESS_REQUEST,ADD_ADDRESS_SUCCESS,GET_ADDRESS_FAILURE,GET_ADDRESS,GET_ADDRESS_SUCCESS,SELECTED_ADDRESS  } from "./AddressType"
 const initialState={
     loading:false,
     addressAdded:false,
@@ -57,6 +57,10 @@ const reducer=(state=initialState,action)=>{
                                         selectedAddress:action.payload.eachAddress,
                                         address:action.payload.UserAddress,
                                         error:''
+                                    }
+                                    case RESET_ADDRESS:
+                                    return{
+                                        ...initialState
                                     }
                     default: return state
     }

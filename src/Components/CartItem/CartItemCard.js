@@ -31,14 +31,11 @@ function CartItemCard(props) {
   return (
     <div >
       <row>
-        <Col>
           <Card border="dark" className="cart-card" >
             <Media>
             <img
-            width={150}
-            height={150}
             className="mr-3" src={generatePublicUrl(props.product._id)} alt="not displayed" />
-            <Media.Body className="prod-body">
+            <Media.Body className="cart-body">
                 <h5>{props.product.name}</h5>
                 <p>
                   RS:{props.product.price}₹/-</p>
@@ -50,7 +47,6 @@ function CartItemCard(props) {
                 <button onClick={handleAddToCart}>+</button>
               </div>
               <Button
-              size="large"
               variant="contained"
               color="secondary"
               className={classes.button}
@@ -63,7 +59,6 @@ function CartItemCard(props) {
             </Media>
             
           </Card>
-        </Col>
       </row>
     </div>
   )

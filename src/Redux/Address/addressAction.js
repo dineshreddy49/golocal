@@ -1,4 +1,4 @@
-import { ADD_ADDRESS_FAILURE,ADD_ADDRESS_REQUEST,ADD_ADDRESS_SUCCESS,GET_ADDRESS,GET_ADDRESS_SUCCESS,GET_ADDRESS_FAILURE,SELECTED_ADDRESS } from "./AddressType"
+import { RESET_ADDRESS,ADD_ADDRESS_FAILURE,ADD_ADDRESS_REQUEST,ADD_ADDRESS_SUCCESS,GET_ADDRESS,GET_ADDRESS_SUCCESS,GET_ADDRESS_FAILURE,SELECTED_ADDRESS } from "./AddressType"
 import axios from 'axios';
 
 export const addAddressRequest=()=>
@@ -46,6 +46,12 @@ export const selectedAddress=address=>
     return{
         type:SELECTED_ADDRESS,
         payload: address
+    }
+}
+export const resetAddressRequest=()=>
+{
+    return{
+        type:RESET_ADDRESS
     }
 }
 export const addAddress=addressDetails=>{

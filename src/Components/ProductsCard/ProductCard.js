@@ -31,8 +31,6 @@ function Productcard(props) {
     <Card border="dark" className="prod-card" >
     <Media>
     <img
-            width={150}
-            height={150}
             className="mr-3" src={generatePublicUrl(props.product._id)} alt="not displayed" />
     <Media.Body className="prod-body">
       <h5>{props.product.name}</h5>

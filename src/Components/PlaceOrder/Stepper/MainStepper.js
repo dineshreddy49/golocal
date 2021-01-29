@@ -10,6 +10,9 @@ import AddressStepper from '../Address/AddressStepper';
 import { useSelector } from 'react-redux';
 import Review from '../Review/Review';
 import Paper from '@material-ui/core/Paper';
+import { useHistory } from 'react-router-dom'
+import { useDispatch} from 'react-redux';
+import {resetCartRequest,resetAddressRequest} from '../../../Redux'
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(3),
@@ -65,6 +68,7 @@ function getStepContent(step) {
 
 export default function MainStepper() {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const steps = getSteps();
@@ -104,7 +108,7 @@ export default function MainStepper() {
   const handleStep = (step) => () => {
     setActiveStep(step);
   };
-
+  const history = useHistory();
   const handleComplete = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
@@ -113,6 +117,9 @@ export default function MainStepper() {
   };
 
   const handleReset = () => {
+    history.replace("/");
+    dispatch(resetCartRequest());
+    dispatch(resetAddressRequest());
     setActiveStep(0);
     setCompleted({});
   };
@@ -146,7 +153,7 @@ export default function MainStepper() {
             <Typography className={classes.instructions}>
               Payment Succesfull.
             </Typography>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button color="primary" variant="contained" onClick={handleReset}>GO TO HOME PAGE</Button>
           </div>
         ) : (
           <div>

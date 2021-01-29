@@ -1,4 +1,4 @@
-import {ADD_TO_CART,DELETE_FROM_CART,DECREASE_FROM_CART} from './cartType';
+import {ADD_TO_CART,DELETE_FROM_CART,DECREASE_FROM_CART,RESET_CART} from './cartType';
 export const addToCart= (items, product) =>(dispatch)=>
 {
    const cartItems =items.slice();
@@ -36,3 +36,10 @@ export const decreaseFromCart = (items, product) => (dispatch) => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     dispatch({ type: DECREASE_FROM_CART, payload: { cartItems } });
   };
+
+export const resetCartRequest=()=>
+{
+    return{
+        type:RESET_CART
+    }
+}
