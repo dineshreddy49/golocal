@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container,Row,Col,Media,Nav,Card} from 'react-bootstrap'
+import {Media} from 'react-bootstrap'
 import generatePublicUrl from '../../urlconfig'
 
 function ItemsCard(props) {
@@ -7,8 +7,8 @@ function ItemsCard(props) {
         <div>
             <Media>
             <img
-                width={64}
-                height={64}
+                width={150}
+                height={150}
                 className="mr-3"
                 src={generatePublicUrl(props.useritems.productId._id)} 
                 alt="not displayed"

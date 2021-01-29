@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 // import InputBase from '@material-ui/core/InputBase';
@@ -251,7 +250,7 @@ function ResponsiveDrawer(props) {
         // ))}
   }
         <ListItem button onClick={handleCart}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"Cart"}/></ListItem>
-        <ListItem button onClick={handleOrder}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"My Orders"}/></ListItem>
+        {authenticated &&<ListItem button onClick={handleOrder}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"My Orders"}/></ListItem>}
         {['BUTTER MILK', 'BISCUITS', 'BULK ORDER'].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <ShoppingCartIcon />}</ListItemIcon>

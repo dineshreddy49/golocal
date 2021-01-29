@@ -17,7 +17,7 @@ function MyOrder() {
             </div>
         ))
     }
-    {console.log(order.data)}
+    {console.log(order.loading)}
     return (
         <div>
         {order.loading && [...Array(n)].map((e, i) =><div key={i}><p className="each-product"><MyOrderSkeleton/></p></div>

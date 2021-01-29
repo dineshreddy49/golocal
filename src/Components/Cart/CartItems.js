@@ -22,7 +22,7 @@ function CartItems() {
     }
     return (
       <div className="cart-items">
-      <h2>MY GOLOCAL CART({cartItems.length})</h2>
+      <h2>My GoLocal Cart({cartItems.length})</h2>
         <Container className="products-container" >
         <Row xs={1} md={1}>
         {content}

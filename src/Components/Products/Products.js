@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect} from 'react'
 import Productcard from '../ProductsCard/ProductCard'
 import {Container,Row,Col} from 'react-bootstrap'
 import './Products.css'

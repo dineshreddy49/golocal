@@ -26,7 +26,7 @@ export const myOrder=details=>{
         headers: { Authorization: `Bearer ${token}` }
     };
     return(dispatch)=>{
-        dispatch(MyOrderRequest)
+        dispatch(MyOrderRequest())
         axios.get('https://golocal999.herokuapp.com/api/getorders',config)
         .then(response =>{
             const MyOrder = response.data

@@ -1,12 +1,6 @@
 import React,{ useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,21 +8,7 @@ import {loginUser} from '../../Redux';
 import {Redirect} from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import { useForm } from "react-hook-form";
-import _ from "lodash/fp";
 import './Signin.css'
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Go Local
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -107,7 +87,7 @@ export default function Signin() {
         {/* without enter data for the password input will result both messages to appear */}
         {errors?.password?.types?.required && <p className = "warning">password required</p>}
         {errors?.password?.types?.minLength && <p className = "warning" >password minLength 10</p>}
-        {login.error && <div> Email ID or Password is Wrong </div>}
+        {login.error ? <div> Email ID or Password is Wrong </div>:<p>everything is good</p>}
            {login.loading ?  
            <Button
             disabled

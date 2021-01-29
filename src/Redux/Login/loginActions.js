@@ -29,7 +29,7 @@ export const logoutRequest=()=>
 }
 export const loginUser=details=>{
     return(dispatch)=>{
-        dispatch(loginRequest)
+        dispatch(loginRequest())
         axios.post('https://golocal999.herokuapp.com/api/signin',details)
         .then(response =>{
             const users = response.data
@@ -52,9 +52,6 @@ export const isUserLoggedIn = () => {
         const user = localStorage.getItem("user");
         console.log(user)
        dispatch(loginSuccess(user))
-      } else {
-        const errorMsg = "Failed to login"
-            dispatch(loginFailure(errorMsg));
-      }
+      } 
     };
   };
