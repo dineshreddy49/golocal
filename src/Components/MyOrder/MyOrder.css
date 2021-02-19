@@ -1,6 +1,6 @@
 .cart-items-1{
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 2%;
     margin-bottom: auto;
 }
@@ -13,7 +13,11 @@
     font-weight: bolder;
 }
 .order-header{
-    height: 50px;
+    height: auto;
+}
+.orders-body{
+    text-align: left;
+
 }
 .order-placed{
     text-align: left;

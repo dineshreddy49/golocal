@@ -1,7 +1,7 @@
 import React from 'react'
 import {Media} from 'react-bootstrap'
 import generatePublicUrl from '../../urlconfig'
-
+import './MyOrder.css'
 function ItemsCard(props) {
     return (
         <div>
@@ -13,7 +13,7 @@ function ItemsCard(props) {
                 src={generatePublicUrl(props.useritems.productId._id)} 
                 alt="not displayed"
             />
-                <Media.Body className="prod-body">
+                <Media.Body className="orders-body">
                 <h5> {props.useritems.productId.name}</h5>
                 <p>
                 Quantity: {props.useritems.count} 

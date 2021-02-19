@@ -1,0 +1,198 @@
+
+.cardtitle{
+    text-align: left;
+    font-family:'Roboto',' Arial';
+    font-size: 45px;
+}
+
+.homepage-final{
+    overflow: hidden;
+}
+
+.YourHighlightClass{
+    font-family:'Roboto',' Arial';
+    font-size: 20px;
+    background-color: yellow;
+}
+
+.positiontext{
+    top: 100px; 
+    left: 0; 
+    width: 100%; 
+    font-size: 20px;
+    margin-left: 05%;
+}
+.newtext{
+    font-family:'Roboto',' Arial';
+    font-size: 25px;
+    padding-right: 20%;
+}
+
+.button{
+    font-family:'Roboto',' Arial';
+    font-size: 25px;
+    width: 250px;
+    height: 75px;
+    border-radius:4px;
+}
+
+
+@media (max-width: 350px){
+    .cardtitle{
+        text-align: left;
+        font-family:'Roboto',' Arial';
+        font-size: 15px;
+    }
+    
+    .YourHighlightClass{
+        font-family:'Roboto',' Arial';
+        font-size: 10px;
+        background-color: yellow;
+    }
+    .homepage-final{
+        overflow: hidden;
+    }
+    
+    .positiontext{
+        top: 0px; 
+        left: 0; 
+        width: 100%; 
+        font-size: 8px;
+        margin-left: 05%;
+    }
+    .newtext{
+        font-family:'Roboto',' Arial';
+        font-size: 8px;
+        padding-right: 20%;
+    }
+    
+    .button{
+        font-family:'Roboto',' Arial';
+        font-size: 8px;
+        width: 70px;
+        height: 25px;
+        border-radius: 15%;
+        display: none;
+    }
+}
+
+
+@media (min-width: 350px) and (max-width: 500px){
+    .cardtitle{
+        text-align: left;
+        font-family:'Roboto',' Arial';
+        font-size: 15px;
+    }
+    
+    .YourHighlightClass{
+        font-family:'Roboto',' Arial';
+        font-size: 10px;
+        background-color: yellow;
+    }
+    
+    .homepage-final{
+        overflow: hidden;
+    }
+
+    .positiontext{
+        top: 0px; 
+        left: 0; 
+        width: 100%; 
+        font-size: 8px;
+        margin-left: 05%;
+    }
+    .newtext{
+        font-family:'Roboto',' Arial';
+        font-size: 8px;
+        padding-right: 20%;
+    }
+    
+    .button{
+        font-family:'Roboto',' Arial';
+        font-size: 8px;
+        width: 70px;
+        height: 25px;
+        border-radius: 15%;
+    }
+}
+
+
+@media (min-width: 500px) and (max-width: 800px){
+    .cardtitle{
+        text-align: left;
+        font-family:'Roboto',' Arial';
+        font-size: 20px;
+    }
+    
+    .YourHighlightClass{
+        font-family:'Roboto',' Arial';
+        font-size: 16px;
+        background-color: yellow;
+    }
+
+    .homepage-final{
+        overflow: hidden;
+    }
+    
+    .positiontext{
+        top: 20px; 
+        left: 0; 
+        width: 100%; 
+        font-size: 12px;
+        margin-left: 05%;
+    }
+    .newtext{
+        font-family:'Roboto',' Arial';
+        font-size: 12px;
+        padding-right: 20%;
+    }
+    
+    .button{
+        font-family:'Roboto',' Arial';
+        font-size: 12px;
+        width: 100px;
+        height: 35px;
+        border-radius: 15%;
+    }
+}
+
+
+@media (min-width: 800px) and (max-width: 1000px){
+    .cardtitle{
+        text-align: left;
+        font-family:'Roboto',' Arial';
+        font-size: 30px;
+    }
+    
+    .YourHighlightClass{
+        font-family:'Roboto',' Arial';
+        font-size: 24px;
+        background-color: yellow;
+    }
+    
+    .positiontext{
+        top: 20px; 
+        left: 0; 
+        width: 100%; 
+        font-size: 25px;
+        margin-left: 10%;
+    }
+
+    .homepage-final{
+        overflow: hidden;
+    }
+    
+    .newtext{
+        font-family:'Roboto',' Arial';
+        font-size: 20px;
+        padding-right: 20%;
+    }
+    
+    .button{
+        font-family:'Roboto',' Arial';
+        font-size: 25px;
+        width: 200px;
+        height: 50px;
+        border-radius: 15%;
+    }
+}

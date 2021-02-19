@@ -1,9 +1,9 @@
-import {ADD_TO_CART,DELETE_FROM_CART,DECREASE_FROM_CART,RESET_CART} from './cartType';
+import {ADD_TO_CART,DELETE_FROM_CART,DECREASE_FROM_CART,RESET_CART,MODIFY_CART} from './cartType';
 export const addToCart= (items, product) =>(dispatch)=>
 {
    const cartItems =items.slice();
     let productAlreadyInCart = false;
-    cartItems.forEach(item=>{if(item._id===product._id){
+    cartItems.forEach(item=>{if((item._id===product._id)&&(item.count<=11)){
         item.count += 1;
         productAlreadyInCart =true;
         
@@ -15,6 +15,26 @@ export const addToCart= (items, product) =>(dispatch)=>
     return dispatch({
        
         type: ADD_TO_CART,
+        payload: { cartItems: cartItems }
+    }
+    )
+}
+export const modifyCart= (items, product,countOfProducts) =>(dispatch)=>
+{
+   const cartItems =items.slice();
+    let productAlreadyInCart = false;
+    cartItems.forEach(item=>{if(item._id===product._id){
+        item.count = countOfProducts;
+        productAlreadyInCart =true;
+        
+    }})
+    if(!productAlreadyInCart){
+        cartItems.push({...product,count:1});
+    }
+    localStorage.setItem("cartItems",JSON.stringify(cartItems));
+    return dispatch({
+       
+        type: MODIFY_CART,
         payload: { cartItems: cartItems }
     }
     )

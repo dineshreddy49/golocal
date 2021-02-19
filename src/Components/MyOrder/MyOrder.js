@@ -20,9 +20,12 @@ function MyOrder() {
     {console.log(order.loading)}
     return (
         <div>
+        <div>
         {order.loading && [...Array(n)].map((e, i) =><div key={i}><p className="each-product"><MyOrderSkeleton/></p></div>
-        ) }
+        ) }</div>
+        <div>
         {order.error &&  <p>Error fetching the data please check your internet connection</p>}
+        </div>
             <div>{content}</div>
         </div>
     )

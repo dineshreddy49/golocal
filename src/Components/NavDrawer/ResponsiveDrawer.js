@@ -146,6 +146,10 @@ function ResponsiveDrawer(props) {
   {
     history.push(`/cart`);
   }
+  const handleAboutUs=()=>
+  {
+    history.push(`/aboutus`);
+  }
   const handleOrder=()=>
   {
     history.push(`/myorder`);
@@ -251,12 +255,14 @@ function ResponsiveDrawer(props) {
   }
         <ListItem button onClick={handleCart}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"Cart"}/></ListItem>
         {authenticated &&<ListItem button onClick={handleOrder}><ListItemIcon><ShoppingCartIcon /></ListItemIcon><ListItemText primary={"My Orders"}/></ListItem>}
-        {['BUTTER MILK', 'BISCUITS', 'BULK ORDER'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <ShoppingCartIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem button onClick={handleAboutUs}><ListItemIcon><InboxIcon /></ListItemIcon><ListItemText primary={"About us"}/></ListItem>
+        {//['BUTTER MILK', 'BISCUITS', 'BULK ORDER'].map((text, index) => (
+         // <ListItem button key={text}>
+         //   <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <ShoppingCartIcon />}</ListItemIcon>
+         //   <ListItemText primary={text} />
+         // </ListItem>
+        //))
+      }
       </List>
     </div>
   );

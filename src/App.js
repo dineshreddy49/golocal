@@ -7,6 +7,7 @@ import PlaceOrder from './Container/PlaceOrder/PlaceOrder';
 import LoginPage from './Container/LoginPage/LoginPage';
 import SignupPage from './Container/SignupPage/SignupPage';
 import MyOrder from './Container/MyOrder/MyOrder'
+import AboutUs from './Container/Homepage'
 
 import { useDispatch, useSelector } from 'react-redux';
 import {isUserLoggedIn} from './Redux'
@@ -27,6 +28,7 @@ function App() {
       <Route path= "/login" component={LoginPage}></Route>
       <Route path= "/signup" component={SignupPage}></Route>
       <Route path= "/myorder" component={MyOrder}></Route>
+      <Route path= "/aboutus" component={AboutUs}></Route>
     </Switch>
     </div>
   );

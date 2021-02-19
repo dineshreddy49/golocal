@@ -18,15 +18,11 @@ function MyOrderCard(props) {
             <Card>
                 <Card.Header className= "order-header">
                     <Row xs={2} md={4} lg={4}>
-                        <Col ><h5 className="order-placed">ORDER PLACED </h5></Col>
-                        <Col ><h5 className="order-content1">TOTAL</h5></Col>
-                        <Col ><h5 className="order-content1">DATE OF ORDER</h5></Col>
+                        <Col ><h5 className="order-placed">ORDER ID :{props.userorder._id} </h5></Col>
+                        <Col ><h5 className="order-content1">TOTAL :₹{props.userorder.totalAmount}</h5></Col>
+                        <Col ><h5 className="order-content1">PAYMENT TYPE :{props.userorder.paymentType}</h5></Col>
                     </Row>
-                    <Row xs={2} md={4} lg={4}>
-                        <Col><h5 className="order-placed">{props.userorder._id}</h5></Col>
-                        <Col><h5 className="order-content1">₹{props.userorder.totalAmount}</h5></Col>
-                        <Col><h5 className="order-content1">₹{props.userorder.orderStatus.type}</h5></Col>
-                    </Row>    
+                       
                 </Card.Header>
                 {/* <Card.Title>{props.userorder.paymentStatus}</Card.Title> */}
                 <Media >

@@ -1,0 +1,229 @@
+.footer-final{
+    overflow: hidden;
+}
+
+.text{
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background-color: #039be5    ;
+    font-family:'Roboto',' Arial';
+    font-size: medium;
+    overflow: hidden;
+}
+
+.container-footer{
+    background-color: #81d4fa ;
+    font-family:'Roboto',' Arial';
+    font-size: medium;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container-center{
+    background-color: #29b6f6  ;
+    font-family:'Roboto',' Arial';
+    font-size: medium;
+    width: 100%;
+    padding: 1rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+.line{
+    width: 100%;
+    color: white;
+    display: none;
+}
+
+.textcolor{
+    color: white;
+    text-align: left;
+}
+
+.h6{
+    color:white;
+    font-size: larger;
+    font-family:'Roboto',' Arial';
+}
+@media (max-width: 350px){
+
+    .text{
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        background-color: #039be5    ;
+        font-family:'Roboto',' Arial';
+        overflow: hidden;
+        font-size: small;
+    }
+    
+    .container-footer{
+        background-color: #81d4fa ;
+        font-family:'Roboto',' Arial';
+        font-size: medium;
+        color: white;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem;
+        align-items: center;
+    }
+    
+    .container-center{
+        background-color: #29b6f6  ;
+        font-family:'Roboto',' Arial';
+        font-size: medium;
+        width: 100%;
+        padding: 1rem;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .line{
+        width: 60px;
+    }
+    
+    .textcolor{
+        color: white;
+        text-align: left;
+        font-family:'Roboto',' Arial';
+        font-size: small;
+    }
+    
+    .h6{
+        color:white;
+        font-size: 12px;
+        font-family:'Roboto',' Arial';
+    }
+
+    .products{
+        display: none;
+    }
+
+    .address{
+        display: none;
+    }
+
+    .container-footer{
+        display: none;
+    }
+}
+
+@media (min-width: 350px) and (max-width: 500px){
+
+    .text{
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        background-color: #039be5    ;
+        overflow: hidden;
+        font-family:'Roboto',' Arial';
+        font-size: small;
+    }
+    
+    .container-footer{
+        background-color: #81d4fa ;
+        font-family:'Roboto',' Arial';
+        font-size: small;
+        color: white;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem;
+        align-items: center;
+    }
+    
+    .container-center{
+        background-color: #29b6f6  ;
+        font-family:'Roboto',' Arial';
+        overflow: hidden;
+        font-size: small;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .line{
+        width: 60px;
+    }
+    
+    .textcolor{
+        color: white;
+        text-align: left;
+    }
+    
+    .h6{
+        color:white;
+        font-size: medium;
+    }
+
+
+    .address{
+        display: none;
+    }
+
+    .container-footer{
+        display: none;
+    }
+}
+
+
+@media (min-width: 500px) and (max-width: 800px){
+
+    .text{
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        background-color: #039be5    ;
+        overflow: hidden;
+        font-family:'Roboto',' Arial';
+        font-size: medium;
+    }
+    
+    .container-footer{
+        background-color: #81d4fa ;
+        font-family:'Roboto',' Arial';
+        font-size: medium;
+        color: white;
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem;
+        align-items: center;
+    }
+    
+    .container-center{
+        background-color: #29b6f6  ;
+        font-family:'Roboto',' Arial';
+        font-size: medium;
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .line{
+        width: 60px;
+    }
+    
+    .textcolor{
+        color: white;
+        text-align: left;
+    }
+    
+    .h6{
+        color:white;
+        font-size: large;
+    }
+
+
+    .address{
+        display: none;
+    }
+
+    .container-footer{
+        display: none;
+    }
+}
+
